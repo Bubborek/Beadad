@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 
 class Program
 {
@@ -18,7 +19,6 @@ class Program
         Console.CursorVisible = true;
         DrawCursor(x, y);
         bool exit = false;
-
         while (!exit)
         {
             if (Console.KeyAvailable)
@@ -49,35 +49,32 @@ class Program
                         PlaceBlock(x, y);
                         break;
                     case ConsoleKey.D0:
-                        currentColor = ConsoleColor.Red;
-                        break;
-                    case ConsoleKey.D1:
-                        currentColor = ConsoleColor.Blue;
-                        break;
-                    case ConsoleKey.D2:
-                        currentColor = ConsoleColor.Yellow;
-                        break;
-                    case ConsoleKey.D3:
-                        currentColor = ConsoleColor.DarkGray;
-                        break;
-                    case ConsoleKey.D4:
-                        currentColor = ConsoleColor.Magenta;
-                        break;
-                    case ConsoleKey.D5:
-                        currentColor = ConsoleColor.DarkGreen;
-                        break;
-                    case ConsoleKey.D6:
-                        currentColor = ConsoleColor.Cyan;
-                        break;
-                    case ConsoleKey.D7:
-                        currentColor = ConsoleColor.DarkMagenta;
-                        break;
-                    case ConsoleKey.D8:
                         currentColor = ConsoleColor.White;
                         break;
-                    case ConsoleKey.D9:
-                        currentColor = ConsoleColor.Black;
+                    case ConsoleKey.D1:
+                        currentColor = ConsoleColor.Red;
                         break;
+                    case ConsoleKey.D2:
+                        currentColor = ConsoleColor.Blue;
+                        break;
+                    case ConsoleKey.D3:
+                        currentColor = ConsoleColor.Yellow;
+                        break;
+                    case ConsoleKey.D4:
+                        currentColor = ConsoleColor.Cyan;
+                        break;
+                    case ConsoleKey.D5:
+                        currentColor = ConsoleColor.Green;
+                        break;
+                    case ConsoleKey.D6:
+                        currentColor = ConsoleColor.Magenta;
+                        break;
+                    case ConsoleKey.D7:
+                        currentColor = ConsoleColor.Gray;
+                        break;
+                    case ConsoleKey.D8:
+                        currentColor = ConsoleColor.Black;
+                        break;                  
                     case ConsoleKey.Y:
                         currentCharacter = '░';
                         break;
@@ -89,8 +86,7 @@ class Program
                         break;
                     case ConsoleKey.V:
                         currentCharacter = '█';
-                        break;
-                       
+                        break;                      
                 }                            
                 DisplayCurrentSelection();
             }
@@ -124,7 +120,6 @@ class Program
         Console.SetCursorPosition(width - 1, height - 1);
         Console.Write("╝");
     }
-
     static void DrawCursor(int x, int y)
     {
         Console.SetCursorPosition(x, y);
@@ -132,13 +127,11 @@ class Program
         Console.Write(currentCharacter);
         Console.ResetColor();
     }
-
     static void ClearCursor(int x, int y)
     {
         Console.SetCursorPosition(x, y);
         Console.Write(" ");
     }
-
     static void PlaceBlock(int x, int y)
     {
         Console.SetCursorPosition(x, y);
@@ -147,12 +140,10 @@ class Program
         Console.ResetColor();
         blocks.Add((x, y, currentCharacter, currentColor));
     }
-
     static bool IsBlockAtPosition(int x, int y)
     {
         return blocks.Exists(block => block.x == x && block.y == y);
     }
-
     static void DisplayCurrentSelection()
     {
         Console.SetCursorPosition(2, 0);
