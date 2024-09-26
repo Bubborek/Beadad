@@ -34,7 +34,7 @@ class Program
                         exit = true;
                         break;
                     case ConsoleKey.W:
-                        if (y > 2) y--; // Lowered limit to 2 for new top border
+                        if (y > 2) y--; 
                         break;
                     case ConsoleKey.S:
                         if (y < height - 2) y++;
@@ -90,7 +90,8 @@ class Program
                     case ConsoleKey.V:
                         currentCharacter = '█';
                         break;
-                }              
+                       
+                }                            
                 DisplayCurrentSelection();
             }
         }
@@ -98,7 +99,7 @@ class Program
 
     static void DrawFrame(int width, int height)
     {
-        Console.SetCursorPosition(0, 1); // Adjusted to start drawing the frame lower
+        Console.SetCursorPosition(0, 1); 
         Console.Write("╔");
         for (int i = 1; i < width - 1; i++)
         {
@@ -106,7 +107,7 @@ class Program
         }
         Console.Write("╗");
 
-        for (int i = 2; i < height - 1; i++) // Start from 2 for the next line
+        for (int i = 2; i < height - 1; i++) 
         {
             Console.SetCursorPosition(0, i);
             Console.Write("║");
